@@ -22,7 +22,7 @@ ORDER BY cf_id DESC;
 -- and the amount left to reach the goal for all "live" projects in descending order. 
 SELECT con.first_name, con.last_name, con.email, 
 cam.goal-cam.pledged AS "Amount left to reach goal", cam.outcome
-INTO contact_table
+INTO email_contacts_remaining_goal_amount
 FROM contacts AS con
 INNER JOIN campaign AS cam
 ON (con.contact_id = cam.contact_id)
@@ -32,7 +32,7 @@ ORDER BY "Amount left to reach goal";
 
 -- Check the table
 
-SELECT* FROM contact_table
+SELECT* FROM email_contacts_remaining_goal_amount
 
 -- 4. (5 pts)
 -- Create a table, "email_backers_remaining_goal_amount" that contains the email address of each backer in descending order, 
